@@ -1,14 +1,15 @@
 ﻿/* General page styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     background-color: #2e2e2e;
-    color: white;
+    color: #e8e6e3;
 }
 
 /* Top navigation bar */
-.navbar {
-    background-color: #424242;
+.top-bar {
+    background-color: #5D6074;
+    color: #E7E7E8;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -16,18 +17,10 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-    .navbar h1 {
-        margin: 0;
-        padding-left: 20px;
-        font-size: 24px;
-    }
-
-    .navbar a {
-        color: white;
-        text-decoration: none;
-        padding-right: 20px;
-        font-size: 16px;
-    }
+.title {
+    font-size: 38px;
+    margin-left: 20px;
+}
 
 /* Search bar styling */
 .search-container {
@@ -44,8 +37,8 @@ body {
         font-size: 16px;
     }
 
-/* Grid of characters */
-.character-grid {
+/* Grid of character tiles */
+.characters-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 20px;
@@ -53,26 +46,54 @@ body {
     justify-items: center;
 }
 
-.character-box {
-    background-color: #3b3b3b;
+/* Individual character tiles */
+.character-tile {
+    position: relative;
+    background-color: #242427;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px;
     border-radius: 8px;
     overflow: hidden;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
 
-    .character-box img {
-        width: 100%;
-        border-bottom: 2px solid white;
-    }
-
-    .character-box:hover {
+    .character-tile:hover {
         transform: scale(1.05);
     }
 
-    .character-box h3 {
-        margin: 10px 0;
-        font-size: 18px;
+.character-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    -webkit-text-stroke-color: #3b3b3b;
+    -webkit-text-stroke-width: 0.8px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.character-tile img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Disabled tile styles */
+.disabled-tile {
+    pointer-events: none;
+}
+
+    .disabled-tile img {
+        filter: grayscale(1);
     }
+
+/* Responsive adjustments */
+@media screen and (max-width: 526px) {
+    .characters-container {
+        width: 100%;
+    }
+
+    .character-tile {
+        width: 80%;
+    }
+}
