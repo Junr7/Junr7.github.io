@@ -1,31 +1,78 @@
-﻿/* Style for the body */
+﻿/* General page styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
     margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+/* Top navigation bar */
+.navbar {
+    background-color: #424242;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+    .navbar h1 {
+        margin: 0;
+        padding-left: 20px;
+        font-size: 24px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding-right: 20px;
+        font-size: 16px;
+    }
+
+/* Search bar styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+    .search-container input {
+        width: 50%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+    }
+
+/* Grid of characters */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
     padding: 20px;
+    justify-items: center;
 }
 
-/* Style for the main heading */
-h1 {
-    color: #2c3e50;
+.character-box {
+    background-color: #3b3b3b;
+    border-radius: 8px;
+    overflow: hidden;
     text-align: center;
-    font-size: 36px;
-}
-
-/* Style for the paragraph */
-p {
-    color: #34495e;
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.6;
-}
-
-/* Optional: add padding and border */
-p {
     padding: 10px;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
-    background-color: #ecf0f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
 }
+
+    .character-box img {
+        width: 100%;
+        border-bottom: 2px solid white;
+    }
+
+    .character-box:hover {
+        transform: scale(1.05);
+    }
+
+    .character-box h3 {
+        margin: 10px 0;
+        font-size: 18px;
+    }
