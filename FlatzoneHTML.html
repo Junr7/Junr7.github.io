@@ -38,7 +38,7 @@
             margin: 10px; /* Space between boxes */
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Distributes space evenly */
+            justify-content: flex-start; /* Aligns items to the top */
             align-items: center; /* Center align items */
             text-align: center;
             color: #fff;
@@ -56,9 +56,13 @@
 
         .box span {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for text */
-            padding: 5px;
+            padding: 10px; /* Padding around the text */
             width: 100%; /* Full width for text background */
             box-sizing: border-box; /* Ensures padding is included in width */
+            height: 40px; /* Fixed height for text box */
+            display: flex; /* Allows flex properties */
+            justify-content: center; /* Center text horizontally */
+            align-items: center; /* Center text vertically */
             margin-top: auto; /* Pushes the text to the bottom */
         }
 
@@ -107,7 +111,7 @@
                 'CharacterRenders/CharacterRenders3/marth.png', 'CharacterRenders/CharacterRenders3/mega_man.png', 
                 'CharacterRenders/CharacterRenders3/meta_knight.png', 'CharacterRenders/CharacterRenders3/mewtwo.png', 
                 'CharacterRenders/CharacterRenders3/mii_brawler.png', 'CharacterRenders/CharacterRenders3/mii_gunner.png', 
-                'CharacterRenders/CharacterRenders3/mii_swordfighter.png', 'CharacterRenders/CharacterRenders3/min_min.png', 
+                'CharacterRenders/CharacterRenders3/mii_swordfighter.png', 'CharacterRenders/CharacterRenders3/min-min.png', 
                 'CharacterRenders/CharacterRenders2/mr_game_and_watch.png', 'CharacterRenders/CharacterRenders2/ness.png', 
                 'CharacterRenders/CharacterRenders2/olimar.png', 'CharacterRenders/CharacterRenders2/pacman.png', 
                 'CharacterRenders/CharacterRenders2/palutena.png', 'CharacterRenders/CharacterRenders2/peach.png', 
