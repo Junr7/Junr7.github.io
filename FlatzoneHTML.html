@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -144,28 +146,114 @@
                 'Roy', 'Ryu', 'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 
                 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
             ];
+             const characterUrls = [
+                            'banjo_and_kazooie.html', 
+                            'bayonetta.html', 
+                            'bowser.html', 
+                            'bowser_jr.html', 
+                            'byleth.html', 
+                            'captain_falcon.html', 
+                            'charizard.html', 
+                            'chrom.html', 
+                            'cloud.html', 
+                            'corrin.html', 
+                            'daisy.html', 
+                            'dark_pit.html', 
+                            'dark_samus.html', 
+                            'diddy_kong.html', 
+                            'donkey_kong.html', 
+                            'dr_mario.html', 
+                            'duck_hunt.html', 
+                            'falco.html', 
+                            'fox.html', 
+                            'ganondorf.html', 
+                            'greninja.html', 
+                            'hero.html', 
+                            'ice_climbers.html', 
+                            'ike.html', 
+                            'incineroar.html', 
+                            'inkling.html', 
+                            'isabelle.html', 
+                            'ivysaur.html', 
+                            'jigglypuff.html', 
+                            'joker.html', 
+                            'kazuya.html', 
+                            'ken.html', 
+                            'king_dedede.html', 
+                            'king_k_rool.html', 
+                            'kirby.html', 
+                            'link.html', 
+                            'little_mac.html', 
+                            'lucario.html', 
+                            'lucas.html', 
+                            'lucina.html', 
+                            'luigi.html', 
+                            'mario.html', 
+                            'marth.html', 
+                            'mega_man.html', 
+                            'meta_knight.html', 
+                            'mewtwo.html', 
+                            'mii_brawler.html', 
+                            'mii_gunner.html', 
+                            'mii_swordfighter.html', 
+                            'min-min.html', 
+                            'mr_game_and_watch.html', 
+                            'ness.html', 
+                            'olimar.html', 
+                            'pacman.html', 
+                            'palutena.html', 
+                            'peach.html', 
+                            'pichu.html', 
+                            'pikachu.html', 
+                            'piranha_plant.html', 
+                            'pit.html', 
+                            'pokemon_trainer.html', 
+                            'pyra_and_mythra.html', 
+                            'richter.html', 
+                            'ridley.html', 
+                            'rob.html', 
+                            'robin.html', 
+                            'rosalina_and_luma.html', 
+                            'roy.html', 
+                            'ryu.html', 
+                            'samus.html', 
+                            'sephiroth.html', 
+                            'sheik.html', 
+                            'shulk.html', 
+                            'simon.html', 
+                            'snake.html', 
+                            'sora.html', 
+                            'steve.html', 
+                            'tony_stark.html', 
+                            'wario.html', 
+                            'wii_fit_trainer.html', 
+                            'wolf.html', 
+                            'yoshi.html', 
+                            'zelda.html', 
+                            'zero_suit_samus.html'
+                        ];
 
             const boxesContainer = document.querySelector('.boxes-container');
 
-            imageUrls.forEach((url, index) => {
+            for (let i = 0; i < imageUrls.length; i++) {
                 const box = document.createElement('div');
                 box.classList.add('box');
 
-                const anchor = document.createElement('a');
-                anchor.href = '#'; // Change to the appropriate link if necessary
+                const link = document.createElement('a');
+                link.href = characterUrls[i]; // Link to the character's page
 
                 const img = document.createElement('img');
-                img.src = url;
-                img.alt = characterNames[index];
+                img.src = imageUrls[i];
+                img.alt = 'Character ' + (i + 1);
 
                 const span = document.createElement('span');
-                span.textContent = characterNames[index];
+                span.textContent = 'Character ' + (i + 1); // Change this to actual character names if needed
 
-                anchor.appendChild(img);
-                anchor.appendChild(span);
-                box.appendChild(anchor);
+                link.appendChild(img);
+                link.appendChild(span);
+                box.appendChild(link);
                 boxesContainer.appendChild(box);
-            });
+            }
         </script>
     </div>
 </body>
