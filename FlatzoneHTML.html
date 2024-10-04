@@ -33,36 +33,31 @@
 
         .box {
             background-color: #333; /* Dark color for boxes */
-            width: 100px; /* Box width */
-            height: 130px; /* Box height to make space for text */
+            width: 120px; /* Box width */
+            height: 150px; /* Box height to make space for text */
             margin: 10px; /* Space between boxes */
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* Align items to the bottom */
-            align-items: center;
+            align-items: center; /* Center align items */
             text-align: center;
             color: #fff;
             position: relative;
+            overflow: hidden; /* Ensures content doesn't overflow */
         }
 
         .box img {
-            max-width: 100%; /* Ensure the image fits inside the box */
-            max-height: 100%; /* Ensure the image fits inside the box */
+            width: 100%; /* Ensure the image fills the box width */
+            height: auto; /* Keep aspect ratio */
+            max-height: 120px; /* Limit height to ensure consistent box height */
             object-fit: cover; /* Keeps the aspect ratio and fills the box */
-            position: absolute;
-            top: 0;
-            bottom: 20px; /* Reserve space for the text */
-            left: 0;
-            right: 0;
         }
 
         .box span {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for text */
             padding: 5px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            box-sizing: border-box;
+            width: 100%; /* Full width for text background */
+            box-sizing: border-box; /* Ensures padding is included in width */
         }
 
         .box a {
