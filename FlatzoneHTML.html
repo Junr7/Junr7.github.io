@@ -128,7 +128,7 @@
                 'CharacterRenders/CharacterRenders4/sora.png', 'CharacterRenders/CharacterRenders4/squirtle.png', 
                 'CharacterRenders/CharacterRenders4/steve.png', 'CharacterRenders/CharacterRenders4/terry.png'
             ];
-
+        
             const characterNames = [
                 'Banjo & Kazooie', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 
                 'Charizard', 'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 
@@ -144,115 +144,58 @@
                 'Roy', 'Ryu', 'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 
                 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
             ];
-             const characterUrls = [
-                            'banjo_and_kazooie.html', 
-                            'CharacterPages/banjo_and_kazooie.html', 
-                            'bayonetta.html', 
-                            'bowser.html', 
-                            'bowser_jr.html', 
-                            'byleth.html', 
-                            'captain_falcon.html', 
-                            'charizard.html', 
-                            'chrom.html', 
-                            'cloud.html', 
-                            'corrin.html', 
-                            'daisy.html', 
-                            'dark_pit.html', 
-                            'dark_samus.html', 
-                            'diddy_kong.html', 
-                            'donkey_kong.html', 
-                            'dr_mario.html', 
-                            'duck_hunt.html', 
-                            'falco.html', 
-                            'fox.html', 
-                            'ganondorf.html', 
-                            'greninja.html', 
-                            'hero.html', 
-                            'ice_climbers.html', 
-                            'ike.html', 
-                            'incineroar.html', 
-                            'inkling.html', 
-                            'isabelle.html', 
-                            'ivysaur.html', 
-                            'jigglypuff.html', 
-                            'joker.html', 
-                            'kazuya.html', 
-                            'ken.html', 
-                            'king_dedede.html', 
-                            'king_k_rool.html', 
-                            'kirby.html', 
-                            'link.html', 
-                            'little_mac.html', 
-                            'lucario.html', 
-                            'lucas.html', 
-                            'lucina.html', 
-                            'luigi.html', 
-                            'mario.html', 
-                            'marth.html', 
-                            'mega_man.html', 
-                            'meta_knight.html', 
-                            'mewtwo.html', 
-                            'mii_brawler.html', 
-                            'mii_gunner.html', 
-                            'mii_swordfighter.html', 
-                            'min-min.html', 
-                            'mr_game_and_watch.html', 
-                            'ness.html', 
-                            'olimar.html', 
-                            'pacman.html', 
-                            'palutena.html', 
-                            'peach.html', 
-                            'pichu.html', 
-                            'pikachu.html', 
-                            'piranha_plant.html', 
-                            'pit.html', 
-                            'pokemon_trainer.html', 
-                            'pyra_and_mythra.html', 
-                            'richter.html', 
-                            'ridley.html', 
-                            'rob.html', 
-                            'robin.html', 
-                            'rosalina_and_luma.html', 
-                            'roy.html', 
-                            'ryu.html', 
-                            'samus.html', 
-                            'sephiroth.html', 
-                            'sheik.html', 
-                            'shulk.html', 
-                            'simon.html', 
-                            'snake.html', 
-                            'sora.html', 
-                            'steve.html', 
-                            'tony_stark.html', 
-                            'wario.html', 
-                            'wii_fit_trainer.html', 
-                            'wolf.html', 
-                            'yoshi.html', 
-                            'zelda.html', 
-                            'zero_suit_samus.html'
-                        ];
-
-            const boxesContainer = document.querySelector('.boxes-container');
-
-            for (let i = 0; i < imageUrls.length; i++) {
-                const box = document.createElement('div');
-                box.classList.add('box');
-
-                const link = document.createElement('a');
-                link.href = characterUrls[i]; // Link to the character's page
-
+        
+            const characterLinks = [
+                'CharacterPages/banjo_and_kazooie.html', 'CharacterPages/bayonetta.html', 
+                'CharacterPages/bowser.html', 'CharacterPages/bowser_jr.html', 'CharacterPages/byleth.html', 
+                'CharacterPages/captain_falcon.html', 'CharacterPages/charizard.html', 'CharacterPages/chrom.html', 
+                'CharacterPages/cloud.html', 'CharacterPages/corrin.html', 'CharacterPages/daisy.html', 
+                'CharacterPages/dark_pit.html', 'CharacterPages/dark_samus.html', 'CharacterPages/diddy_kong.html', 
+                'CharacterPages/donkey_kong.html', 'CharacterPages/dr_mario.html', 'CharacterPages/duck_hunt.html', 
+                'CharacterPages/falco.html', 'CharacterPages/fox.html', 'CharacterPages/ganondorf.html', 
+                'CharacterPages/greninja.html', 'CharacterPages/hero.html', 'CharacterPages/ice_climbers.html', 
+                'CharacterPages/ike.html', 'CharacterPages/incineroar.html', 'CharacterPages/inkling.html', 
+                'CharacterPages/isabelle.html', 'CharacterPages/ivysaur.html', 'CharacterPages/jigglypuff.html', 
+                'CharacterPages/joker.html', 'CharacterPages/kazuya.html', 'CharacterPages/ken.html', 
+                'CharacterPages/king_dedede.html', 'CharacterPages/king_k_rool.html', 'CharacterPages/kirby.html', 
+                'CharacterPages/link.html', 'CharacterPages/little_mac.html', 'CharacterPages/lucario.html', 
+                'CharacterPages/lucas.html', 'CharacterPages/lucina.html', 'CharacterPages/luigi.html', 
+                'CharacterPages/mario.html', 'CharacterPages/marth.html', 'CharacterPages/mega_man.html', 
+                'CharacterPages/meta_knight.html', 'CharacterPages/mewtwo.html', 'CharacterPages/mii_brawler.html', 
+                'CharacterPages/mii_gunner.html', 'CharacterPages/mii_swordfighter.html', 'CharacterPages/min_min.html', 
+                'CharacterPages/mr_game_and_watch.html', 'CharacterPages/ness.html', 'CharacterPages/olimar.html', 
+                'CharacterPages/pacman.html', 'CharacterPages/palutena.html', 'CharacterPages/peach.html', 
+                'CharacterPages/pichu.html', 'CharacterPages/pikachu.html', 'CharacterPages/piranha_plant.html', 
+                'CharacterPages/pit.html', 'CharacterPages/pokemon_trainer.html', 'CharacterPages/pyra_and_mythra.html', 
+                'CharacterPages/richter.html', 'CharacterPages/ridley.html', 'CharacterPages/rob.html', 
+                'CharacterPages/robin.html', 'CharacterPages/rosalina_and_luma.html', 'CharacterPages/roy.html', 
+                'CharacterPages/ryu.html', 'CharacterPages/samus.html', 'CharacterPages/sephiroth.html', 
+                'CharacterPages/sheik.html', 'CharacterPages/shulk.html', 'CharacterPages/simon.html', 
+                'CharacterPages/snake.html', 'CharacterPages/sonic.html', 'CharacterPages/sora.html', 
+                'CharacterPages/squirtle.html', 'CharacterPages/steve.html', 'CharacterPages/terry.html'
+            ];
+        
+            // Dynamically create image elements with corresponding links and names
+            imageUrls.forEach((imageUrl, index) => {
+                const container = document.createElement('div');
+                container.style.textAlign = 'center';
+                
                 const img = document.createElement('img');
-                img.src = imageUrls[i];
-                img.alt = 'Character ' + (i + 1);
-
-                const span = document.createElement('span');
-                span.textContent = 'Character ' + (i + 1); // Change this to actual character names if needed
-
-                link.appendChild(img);
-                link.appendChild(span);
-                box.appendChild(link);
-                boxesContainer.appendChild(box);
-            }
+                img.src = imageUrl;
+                img.alt = characterNames[index];
+                img.style.width = '100px'; // Adjust size as needed
+                img.style.marginBottom = '10px';
+                img.addEventListener('click', () => {
+                    window.location.href = characterLinks[index];
+                });
+        
+                const name = document.createElement('p');
+                name.innerText = characterNames[index];
+                
+                container.appendChild(img);
+                container.appendChild(name);
+                document.body.appendChild(container);
+            });
         </script>
     </div>
 </body>
