@@ -145,27 +145,36 @@
                 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
             ];
 
-            const boxesContainer = document.querySelector('.boxes-container');
+            // Ensure the length of both arrays is the same
+            if (imageUrls.length !== characterNames.length) {
+                console.error('The imageUrls and characterNames arrays must have the same length.');
+            } else {
+                // Iterate through each character
+                imageUrls.forEach((url, index) => {
+                    const box = document.createElement('div');
+                    box.classList.add('box');
 
-            imageUrls.forEach((url, index) => {
-                const box = document.createElement('div');
-                box.classList.add('box');
+                    const anchor = document.createElement('a');
+                    
+                    // Set href for Banjo & Kazooie
+                    if (characterNames[index] === 'Banjo & Kazooie') {
+                        anchor.href = 'CharacterPages/banjo_and_kazooie.html'; // Relative path to the character page
+                    } else {
+                        anchor.href = '#'; // Placeholder for other characters
+                    }
 
-                const anchor = document.createElement('a');
-                anchor.href = '#'; // Change to the appropriate link if necessary
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = characterNames[index];
 
-                const img = document.createElement('img');
-                img.src = url;
-                img.alt = characterNames[index];
+                    const span = document.createElement('span');
+                    span.textContent = characterNames[index];
 
-                const span = document.createElement('span');
-                span.textContent = characterNames[index];
-
-                anchor.appendChild(img);
-                anchor.appendChild(span);
-                box.appendChild(anchor);
-                boxesContainer.appendChild(box);
-            });
+                    anchor.appendChild(img);
+                    anchor.appendChild(span);
+                    box.appendChild(anchor);
+                    boxesContainer.appendChild(box);
+                });
         </script>
     </div>
 </body>
