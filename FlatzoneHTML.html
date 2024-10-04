@@ -76,7 +76,7 @@
         <!-- Generate 89 boxes with images and text -->
         <script>
             const imageUrls = [
-                'CharacterRenders/banjo_and_kazooie.png', 
+                '/CharacterRenders/banjo_and_kazooie.png', 
                 'CharacterRenders/image2.jpg', // Add more images if necessary
             ];
 
@@ -85,7 +85,7 @@
             ];
 
             for (let i = 1; i <= 89; i++) {
-                let imageUrl = imageUrls[i - 1] || '\CharacterRenders\placeholder.jpg'; // Placeholder for missing images
+                let imageUrl = imageUrls[i - 1] || '/CharacterRenders/placeholder.jpg'; // Placeholder for missing images
                 let textLabel = textLabels[i - 1] || `Box ${i}`; // Default text if missing
                 document.write(`
                     <div class="box">
