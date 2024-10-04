@@ -64,14 +64,6 @@
             width: 100%;
             box-sizing: border-box;
         }
-
-        .box a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
     </style>
 </head>
 <body>
@@ -81,6 +73,7 @@
     </div>
 
     <div class="boxes-container">
+        <!-- Generate 89 boxes with images and text -->
         <script>
             const imageUrls = [
                 'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 'CharacterRenders/CharacterRenders1/bayonetta.png', 
@@ -128,46 +121,37 @@
                 'CharacterRenders/CharacterRenders4/wolf.png', 'CharacterRenders/CharacterRenders4/yoshi.png', 
                 'CharacterRenders/CharacterRenders4/young_link.png', 'CharacterRenders/CharacterRenders4/zelda.png', 
                 'CharacterRenders/CharacterRenders4/zero_suit_samus.png'
+
             ];
 
             const textLabels = [
-                'Banjo & Kazooie1', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 'Charizard', 
-                'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 'Donkey Kong', 
-                'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox', 'Ganondorf', 'Greninja', 'Hero', 'Ice Climbers', 
-                'Ike', 'Incineroar', 'Inkling', 'Isabelle', 'Ivysaur', 'Jigglypuff', 'Joker', 'Kazuya', 
-                'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 'Little Mac', 'Lucario', 'Lucas', 
-                'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 'Meta Knight', 'Mewtwo', 'Mii Brawler', 
-                'Mii Gunner', 'Mii Swordfighter', 'Min Min', 'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 
-                'Palutena', 'Peach', 'Pichu', 'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 
-                'Pyra & Mythra', 'Richter', 'Ridley', 'Rob', 'Robin', 'Rosalina & Luma', 'Roy', 'Ryu', 
-                'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 'Sonic', 'Sora', 'Squirtle', 
-                'Steve', 'Terry', 'Toon Link', 'Villager', 'Wario', 'Wii Fit Trainer', 'Wolf', 'Yoshi', 
-                'Young Link', 'Zelda', 'Zero Suit Samus'
+                'Banjo & Kazooie', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 
+                'Charizard', 'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 
+                'Donkey Kong', 'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox', 'Ganondorf', 'Greninja', 
+                'Hero', 'Ice Climbers', 'Ike', 'Incineroar', 'Inkling', 'Isabelle', 'Ivysaur', 
+                'Jigglypuff', 'Joker', 'Kazuya', 'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 
+                'Little Mac', 'Lucario', 'Lucas', 'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 
+                'Meta Knight', 'Mewtwo', 'Mii Brawler', 'Mii Gunner', 'Mii Swordfighter', 'Min Min', 
+                'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 'Peach', 'Pichu', 
+                'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 'Pyra & Mythra', 'Richter', 
+                'Ridley', 'ROB', 'Robin', 'Rosalina & Luma', 'Roy', 'Ryu', 'Samus', 'Sephiroth', 
+                'Sheik', 'Shulk', 'Simon', 'Snake', 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry', 
+                'Toon Link', 'Villager', 'Wario', 'Wii Fit Trainer', 'Wolf', 'Yoshi', 'Young Link', 
+                'Zelda', 'Zero Suit Samus'
             ];
 
-            for (let i = 0; i < imageUrls.length; i++) {
-                const box = document.createElement('div');
-                box.className = 'box';
-
-                const anchor = document.createElement('a');
-                if (textLabels[i] === 'Banjo & Kazooie') {
-                    anchor.href = 'banjo_and_kazooie_page.html'; // Link to Banjo & Kazooie page
-                } else {
-                    anchor.href = '#'; // Placeholder for other characters
-                }
-
-                const img = document.createElement('img');
-                img.src = imageUrls[i];
-                anchor.appendChild(img);
-
-                const span = document.createElement('span');
-                span.textContent = textLabels[i];
-                anchor.appendChild(span);
-
-                box.appendChild(anchor);
-                document.querySelector('.boxes-container').appendChild(box);
+            for (let i = 1; i <= 89; i++) {
+                let imageUrl = imageUrls[i - 1] || 'placeholder.jpg'; // Placeholder for missing images
+                let textLabel = textLabels[i - 1] || `Box ${i}`; // Default text if missing
+                document.write(`
+                    <div class="box">
+                        <img src="${imageUrl}" alt="Box ${i}">
+                        <span>${textLabel}</span>
+                    </div>
+                `);
             }
         </script>
     </div>
+
 </body>
 </html>
