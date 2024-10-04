@@ -56,15 +56,14 @@
 
         .box span {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for text */
-            padding: 5px; /* Reduced padding around the text */
+            padding: 2px; /* Reduced padding around the text */
             width: 100%; /* Full width for text background */
             box-sizing: border-box; /* Ensures padding is included in width */
             height: 40px; /* Fixed height for text box */
             display: flex; /* Allows flex properties */
             justify-content: center; /* Center text horizontally */
             align-items: center; /* Center text vertically */
-            margin-top: auto; /* Pushes the text to the bottom */
-            margin-bottom: 0; /* Remove bottom margin to reduce space */
+            margin-top: 0; /* No margin at the top to move text closer to the image */
         }
 
         .box a {
@@ -139,31 +138,32 @@
                 'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 'Little Mac', 
                 'Lucario', 'Lucas', 'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 
                 'Meta Knight', 'Mewtwo', 'Mii Brawler', 'Mii Gunner', 'Mii Swordfighter', 
-                'Min-Min', 'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 
+                'Min Min', 'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 
                 'Peach', 'Pichu', 'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 
                 'Pyra & Mythra', 'Richter', 'Ridley', 'Rob', 'Robin', 'Rosalina & Luma', 
-                'Roy', 'Ryu', 'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 
-                'Snake', 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
+                'Roy', 'Ryu', 'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 
+                'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
             ];
 
             const boxesContainer = document.querySelector('.boxes-container');
 
             imageUrls.forEach((url, index) => {
                 const box = document.createElement('div');
-                box.className = 'box';
+                box.classList.add('box');
 
-                const link = document.createElement('a');
-                link.href = '#'; // Add the appropriate link if needed
+                const anchor = document.createElement('a');
+                anchor.href = '#'; // Change to the appropriate link if necessary
 
                 const img = document.createElement('img');
                 img.src = url;
+                img.alt = characterNames[index];
 
-                const text = document.createElement('span');
-                text.textContent = characterNames[index];
+                const span = document.createElement('span');
+                span.textContent = characterNames[index];
 
-                link.appendChild(img);
-                link.appendChild(text);
-                box.appendChild(link);
+                anchor.appendChild(img);
+                anchor.appendChild(span);
+                box.appendChild(anchor);
                 boxesContainer.appendChild(box);
             });
         </script>
