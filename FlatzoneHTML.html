@@ -140,15 +140,27 @@
                 'Zelda', 'Zero Suit Samus'
             ];
 
-            for (let i = 1; i <= 89; i++) {
-                let imageUrl = imageUrls[i - 1] || 'placeholder.jpg'; // Placeholder for missing images
-                let textLabel = textLabels[i - 1] || `Box ${i}`; // Default text if missing
-                document.write(`
-                    <div class="box">
-                        <img src="${imageUrl}" alt="Box ${i}">
-                        <span>${textLabel}</span>
-                    </div>
-                `);
+            for (let i = 0; i < imageUrls.length; i++) {
+                const box = document.createElement('div');
+                box.className = 'box';
+
+                const anchor = document.createElement('a');
+                if (textLabels[i] === 'Banjo & Kazooie') {
+                    anchor.href = 'banjo_and_kazooie_page.html'; // Link to Banjo & Kazooie page
+                } else {
+                    anchor.href = '#'; // Placeholder for other characters
+                }
+
+                const img = document.createElement('img');
+                img.src = imageUrls[i];
+                anchor.appendChild(img);
+
+                const span = document.createElement('span');
+                span.textContent = textLabels[i];
+                anchor.appendChild(span);
+
+                box.appendChild(anchor);
+                document.querySelector('.boxes-container').appendChild(box);
             }
         </script>
     </div>
