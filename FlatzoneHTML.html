@@ -154,13 +154,17 @@
         imageUrls.forEach((url, index) => {
             const box = document.createElement('div');
             box.classList.add('box');
+        
+            // Create the correct file path in the CharacterPages1 folder
+            const characterFileName = "CharacterPages1/" + characterNames[index].toLowerCase().replace(/ & /g, "_").replace(/\s+/g, "_") + ".html";
+        
             box.innerHTML = `
-                <a href="#">
+                <a href="${characterFileName}">
                     <img src="${url}" alt="${characterNames[index]}">
                     <span>${characterNames[index]}</span>
                 </a>
             `;
-            boxesContainer.appendChild(box); // Append to the container instead of body
+            boxesContainer.appendChild(box);
         });
     </script>
 
