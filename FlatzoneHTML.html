@@ -86,19 +86,25 @@
 
     <div class="boxes-container">
         <script>
+            const boxesContainer = document.querySelector('.boxes-container');
+
             const imageUrls = [
-                'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 'CharacterRenders/CharacterRenders1/bayonetta.png', 
-                // ... (other character image URLs)
+                'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 
+                'CharacterRenders/CharacterRenders1/bayonetta.png', 
+                'CharacterRenders/CharacterRenders1/jigglypuff.png', 
+                'CharacterRenders/CharacterRenders1/ryu.png', 
+                // Add other character image URLs here
                 'CharacterRenders/CharacterRenders4/terry.png'
             ];
 
             const characterNames = [
-                'Banjo & Kazooie', 'Bayonetta', 
-                // ... (other character names)
+                'Banjo & Kazooie', 
+                'Bayonetta', 
+                'Jigglypuff', 
+                'Ryu', 
+                // Add other character names here
                 'Terry'
             ];
-
-            const boxesContainer = document.querySelector('.boxes-container');
 
             imageUrls.forEach((url, index) => {
                 const box = document.createElement('div');
@@ -106,7 +112,7 @@
 
                 const anchor = document.createElement('a');
                 
-                // Change href for Banjo & Kazooie
+                // Set href for Banjo & Kazooie
                 if (characterNames[index] === 'Banjo & Kazooie') {
                     anchor.href = 'CharacterPages/banjo_and_kazooie.html'; // Relative path to the character page
                 } else {
