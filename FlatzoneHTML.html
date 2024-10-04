@@ -34,7 +34,7 @@
         .box {
             background-color: #333; /* Dark color for boxes */
             width: 120px; /* Box width */
-            height: 160px; /* Reduced height for uniformity */
+            height: 160px; /* Height for uniformity */
             margin: 5px; /* Space between boxes */
             display: flex;
             flex-direction: column;
@@ -88,13 +88,19 @@
         <script>
             const boxesContainer = document.querySelector('.boxes-container');
 
+            // Ensure the following arrays are fully populated with matching indexes
             const imageUrls = [
                 'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 
                 'CharacterRenders/CharacterRenders1/bayonetta.png', 
                 'CharacterRenders/CharacterRenders1/jigglypuff.png', 
                 'CharacterRenders/CharacterRenders1/ryu.png', 
-                // Add other character image URLs here
-                'CharacterRenders/CharacterRenders4/terry.png'
+                'CharacterRenders/CharacterRenders1/terry.png', // Add additional images as needed
+                'CharacterRenders/CharacterRenders1/pikachu.png', // Placeholder images
+                'CharacterRenders/CharacterRenders1/samus.png',
+                'CharacterRenders/CharacterRenders1/mario.png',
+                'CharacterRenders/CharacterRenders1/link.png',
+                'CharacterRenders/CharacterRenders1/zelda.png',
+                // Add more characters as needed
             ];
 
             const characterNames = [
@@ -102,35 +108,46 @@
                 'Bayonetta', 
                 'Jigglypuff', 
                 'Ryu', 
-                // Add other character names here
-                'Terry'
+                'Terry', // Ensure these match the image URLs
+                'Pikachu',
+                'Samus',
+                'Mario',
+                'Link',
+                'Zelda',
+                // Add more characters as needed
             ];
 
-            imageUrls.forEach((url, index) => {
-                const box = document.createElement('div');
-                box.classList.add('box');
+            // Ensure the length of both arrays is the same
+            if (imageUrls.length !== characterNames.length) {
+                console.error('The imageUrls and characterNames arrays must have the same length.');
+            } else {
+                // Iterate through each character
+                imageUrls.forEach((url, index) => {
+                    const box = document.createElement('div');
+                    box.classList.add('box');
 
-                const anchor = document.createElement('a');
-                
-                // Set href for Banjo & Kazooie
-                if (characterNames[index] === 'Banjo & Kazooie') {
-                    anchor.href = 'CharacterPages/banjo_and_kazooie.html'; // Relative path to the character page
-                } else {
-                    anchor.href = '#'; // Placeholder for other characters
-                }
+                    const anchor = document.createElement('a');
+                    
+                    // Set href for Banjo & Kazooie
+                    if (characterNames[index] === 'Banjo & Kazooie') {
+                        anchor.href = 'CharacterPages/banjo_and_kazooie.html'; // Relative path to the character page
+                    } else {
+                        anchor.href = '#'; // Placeholder for other characters
+                    }
 
-                const img = document.createElement('img');
-                img.src = url;
-                img.alt = characterNames[index];
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = characterNames[index];
 
-                const span = document.createElement('span');
-                span.textContent = characterNames[index];
+                    const span = document.createElement('span');
+                    span.textContent = characterNames[index];
 
-                anchor.appendChild(img);
-                anchor.appendChild(span);
-                box.appendChild(anchor);
-                boxesContainer.appendChild(box);
-            });
+                    anchor.appendChild(img);
+                    anchor.appendChild(span);
+                    box.appendChild(anchor);
+                    boxesContainer.appendChild(box);
+                });
+            }
         </script>
     </div>
 </body>
