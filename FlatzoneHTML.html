@@ -56,7 +56,7 @@
 
         .box span {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for text */
-            padding: 10px; /* Padding around the text */
+            padding: 5px; /* Reduced padding around the text */
             width: 100%; /* Full width for text background */
             box-sizing: border-box; /* Ensures padding is included in width */
             height: 40px; /* Fixed height for text box */
@@ -64,6 +64,7 @@
             justify-content: center; /* Center text horizontally */
             align-items: center; /* Center text vertically */
             margin-top: auto; /* Pushes the text to the bottom */
+            margin-bottom: 0; /* Remove bottom margin to reduce space */
         }
 
         .box a {
@@ -126,52 +127,4 @@
                 'CharacterRenders/CharacterRenders4/shulk.png', 'CharacterRenders/CharacterRenders4/simon.png', 
                 'CharacterRenders/CharacterRenders4/snake.png', 'CharacterRenders/CharacterRenders4/sonic.png', 
                 'CharacterRenders/CharacterRenders4/sora.png', 'CharacterRenders/CharacterRenders4/squirtle.png', 
-                'CharacterRenders/CharacterRenders4/steve.png', 'CharacterRenders/CharacterRenders4/terry.png', 
-                'CharacterRenders/CharacterRenders4/toon_link.png', 'CharacterRenders/CharacterRenders4/villager.png', 
-                'CharacterRenders/CharacterRenders4/wario.png', 'CharacterRenders/CharacterRenders4/wii_fit_trainer.png', 
-                'CharacterRenders/CharacterRenders4/wolf.png', 'CharacterRenders/CharacterRenders4/yoshi.png', 
-                'CharacterRenders/CharacterRenders4/young_link.png', 'CharacterRenders/CharacterRenders4/zelda.png', 
-                'CharacterRenders/CharacterRenders4/zero_suit_samus.png'
-            ];
-
-            const textLabels = [
-                'Banjo & Kazooie', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 'Charizard', 
-                'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 'Donkey Kong', 
-                'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox', 'Ganondorf', 'Greninja', 'Hero', 'Ice Climbers', 
-                'Ike', 'Incineroar', 'Inkling', 'Isabelle', 'Ivysaur', 'Jigglypuff', 'Joker', 'Kazuya', 
-                'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 'Little Mac', 'Lucario', 'Lucas', 
-                'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 'Meta Knight', 'Mewtwo', 'Mii Brawler', 
-                'Mii Gunner', 'Mii Swordfighter', 'Min Min', 'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 
-                'Palutena', 'Peach', 'Pichu', 'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 
-                'Pyra & Mythra', 'Richter', 'Ridley', 'Rob', 'Robin', 'Rosalina & Luma', 'Roy', 'Ryu', 
-                'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 'Sonic', 'Sora', 'Squirtle', 
-                'Steve', 'Terry', 'Toon Link', 'Villager', 'Wario', 'Wii Fit Trainer', 'Wolf', 'Yoshi', 
-                'Young Link', 'Zelda', 'Zero Suit Samus'
-            ];
-
-            for (let i = 0; i < imageUrls.length; i++) {
-                const box = document.createElement('div');
-                box.className = 'box';
-
-                const anchor = document.createElement('a');
-                if (textLabels[i] === 'Banjo & Kazooie') {
-                    anchor.href = 'banjo_and_kazooie_page.html'; // Link to Banjo & Kazooie page
-                } else {
-                    anchor.href = '#'; // Placeholder for other characters
-                }
-
-                const img = document.createElement('img');
-                img.src = imageUrls[i];
-                anchor.appendChild(img);
-
-                const span = document.createElement('span');
-                span.textContent = textLabels[i];
-                anchor.appendChild(span);
-
-                box.appendChild(anchor);
-                document.querySelector('.boxes-container').appendChild(box);
-            }
-        </script>
-    </div>
-</body>
-</html>
+                'CharacterRenders/CharacterRenders4/steve.png', 'CharacterRenders/CharacterRenders4/terry.png
