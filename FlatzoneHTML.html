@@ -33,36 +33,43 @@
 
         .box {
             background-color: #333; /* Dark color for boxes */
-            width: 100px; /* Box width */
-            height: 130px; /* Box height to make space for text */
+            width: 120px; /* Box width */
+            height: 150px; /* Box height to make space for text */
             margin: 10px; /* Space between boxes */
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* Align items to the bottom */
-            align-items: center;
+            align-items: center; /* Center align items */
             text-align: center;
             color: #fff;
             position: relative;
+            overflow: hidden; /* Ensures content doesn't overflow */
         }
 
         .box img {
-            max-width: 100%; /* Ensure the image fits inside the box */
-            max-height: 100%; /* Ensure the image fits inside the box */
+            width: 100%; /* Ensure the image fills the box width */
+            height: auto; /* Keep aspect ratio */
+            max-height: 120px; /* Limit height to ensure consistent box height */
             object-fit: cover; /* Keeps the aspect ratio and fills the box */
-            position: absolute;
-            top: 0;
-            bottom: 20px; /* Reserve space for the text */
-            left: 0;
-            right: 0;
+            display: block; /* Ensures no additional space below the image */
         }
 
         .box span {
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for text */
             padding: 5px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            box-sizing: border-box;
+            width: 100%; /* Full width for text background */
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        .box a {
+            text-decoration: none;
+            color: inherit;
+            display: flex; /* Changed to flex */
+            flex-direction: column; /* Ensure image and text stack vertically */
+            justify-content: space-between; /* Distributes space between image and text */
+            align-items: center; /* Center align items */
+            height: 100%; /* Ensure anchor takes full box height */
+            width: 100%; /* Ensure anchor takes full box width */
         }
     </style>
 </head>
@@ -73,7 +80,6 @@
     </div>
 
     <div class="boxes-container">
-        <!-- Generate 89 boxes with images and text -->
         <script>
             const imageUrls = [
                 'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 'CharacterRenders/CharacterRenders1/bayonetta.png', 
@@ -121,23 +127,21 @@
                 'CharacterRenders/CharacterRenders4/wolf.png', 'CharacterRenders/CharacterRenders4/yoshi.png', 
                 'CharacterRenders/CharacterRenders4/young_link.png', 'CharacterRenders/CharacterRenders4/zelda.png', 
                 'CharacterRenders/CharacterRenders4/zero_suit_samus.png'
-
             ];
 
             const textLabels = [
-                'Banjo & Kazooie', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 
-                'Charizard', 'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 
-                'Donkey Kong', 'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox', 'Ganondorf', 'Greninja', 
-                'Hero', 'Ice Climbers', 'Ike', 'Incineroar', 'Inkling', 'Isabelle', 'Ivysaur', 
-                'Jigglypuff', 'Joker', 'Kazuya', 'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 
-                'Little Mac', 'Lucario', 'Lucas', 'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 
-                'Meta Knight', 'Mewtwo', 'Mii Brawler', 'Mii Gunner', 'Mii Swordfighter', 'Min Min', 
-                'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 'Peach', 'Pichu', 
-                'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 'Pyra & Mythra', 'Richter', 
-                'Ridley', 'ROB', 'Robin', 'Rosalina & Luma', 'Roy', 'Ryu', 'Samus', 'Sephiroth', 
-                'Sheik', 'Shulk', 'Simon', 'Snake', 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry', 
-                'Toon Link', 'Villager', 'Wario', 'Wii Fit Trainer', 'Wolf', 'Yoshi', 'Young Link', 
-                'Zelda', 'Zero Suit Samus'
+                'Banjo & Kazooie', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 'Charizard', 
+                'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 'Donkey Kong', 
+                'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox', 'Ganondorf', 'Greninja', 'Hero', 'Ice Climbers', 
+                'Ike', 'Incineroar', 'Inkling', 'Isabelle', 'Ivysaur', 'Jigglypuff', 'Joker', 'Kazuya', 
+                'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 'Little Mac', 'Lucario', 'Lucas', 
+                'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 'Meta Knight', 'Mewtwo', 'Mii Brawler', 
+                'Mii Gunner', 'Mii Swordfighter', 'Min Min', 'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 
+                'Palutena', 'Peach', 'Pichu', 'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 
+                'Pyra & Mythra', 'Richter', 'Ridley', 'Rob', 'Robin', 'Rosalina & Luma', 'Roy', 'Ryu', 
+                'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 'Sonic', 'Sora', 'Squirtle', 
+                'Steve', 'Terry', 'Toon Link', 'Villager', 'Wario', 'Wii Fit Trainer', 'Wolf', 'Yoshi', 
+                'Young Link', 'Zelda', 'Zero Suit Samus'
             ];
 
             for (let i = 0; i < imageUrls.length; i++) {
@@ -164,6 +168,5 @@
             }
         </script>
     </div>
-
 </body>
 </html>
