@@ -74,22 +74,18 @@
 
     <div class="boxes-container">
         <!-- Generate 89 boxes with images and text -->
-        <!-- Replace 'image1.jpg', 'image2.jpg', etc. with your actual image URLs -->
         <script>
             const imageUrls = [
                 'CharacterRenders/banjo_and_kazooie.png', 
-                'CharacterRenders/image2.jpg',
+                'CharacterRenders/image2.jpg', // Add more images if necessary
             ];
 
             const textLabels = [
-                'Banjo & Kazooie', 'Text 2', 'Text 3', // Add text labels for each box
-                'Text 4', 'Text 5', 'Text 6', 'Text 7', 'Text 8',
-                'Text 9', 'Text 10', // ... more text labels
-                // Make sure you have 89 text labels
+                'Banjo & Kazooie', 'Text 2', // Add more text labels if necessary
             ];
 
             for (let i = 1; i <= 89; i++) {
-                let imageUrl = imageUrls[i - 1] || 'placeholder.jpg'; // Placeholder for missing images
+                let imageUrl = imageUrls[i - 1] || 'CharacterRenders/placeholder.jpg'; // Placeholder for missing images
                 let textLabel = textLabels[i - 1] || `Box ${i}`; // Default text if missing
                 document.write(`
                     <div class="box">
