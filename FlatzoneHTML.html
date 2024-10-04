@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,6 +145,7 @@
                 'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
             ];
              const characterUrls = [
+                            'banjo_and_kazooie.html', 
                             'CharacterPages/banjo_and_kazooie.html', 
                             'bayonetta.html', 
                             'bowser.html', 
@@ -246,7 +245,9 @@
                 img.src = imageUrls[i];
                 img.alt = 'Character ' + (i + 1);
 
-                
+                const span = document.createElement('span');
+                span.textContent = 'Character ' + (i + 1); // Change this to actual character names if needed
+
                 link.appendChild(img);
                 link.appendChild(span);
                 box.appendChild(link);
