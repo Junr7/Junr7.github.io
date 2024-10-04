@@ -9,9 +9,6 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0; /* Light background for contrast */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .top-bar {
@@ -28,7 +25,7 @@
             flex-wrap: wrap; /* Allows boxes to wrap to the next line */
             justify-content: center; /* Centers boxes horizontally */
             max-width: 1200px; /* Optional: Limit the width of the container */
-            margin-top: 20px; /* Space above the boxes */
+            margin: 20px auto; /* Space around the container */
         }
 
         .box {
@@ -85,118 +82,87 @@
     </div>
 
     <div class="boxes-container">
-        <script>
-            const imageUrls = [
-                'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 'CharacterRenders/CharacterRenders1/bayonetta.png', 
-                'CharacterRenders/CharacterRenders1/bowser.png', 'CharacterRenders/CharacterRenders1/bowser_jr.png', 
-                'CharacterRenders/CharacterRenders1/byleth.png', 'CharacterRenders/CharacterRenders1/captain_falcon.png', 
-                'CharacterRenders/CharacterRenders1/charizard.png', 'CharacterRenders/CharacterRenders1/chrom.png', 
-                'CharacterRenders/CharacterRenders1/cloud.png', 'CharacterRenders/CharacterRenders1/corrin.png', 
-                'CharacterRenders/CharacterRenders1/daisy.png', 'CharacterRenders/CharacterRenders1/dark_pit.png', 
-                'CharacterRenders/CharacterRenders1/dark_samus.png', 'CharacterRenders/CharacterRenders1/diddy_kong.png', 
-                'CharacterRenders/CharacterRenders1/donkey_kong.png', 'CharacterRenders/CharacterRenders1/dr_mario.png', 
-                'CharacterRenders/CharacterRenders1/duck_hunt.png', 'CharacterRenders/CharacterRenders1/falco.png', 
-                'CharacterRenders/CharacterRenders1/fox.png', 'CharacterRenders/CharacterRenders1/ganondorf.png', 
-                'CharacterRenders/CharacterRenders1/greninja.png', 'CharacterRenders/CharacterRenders1/hero.png', 
-                'CharacterRenders/CharacterRenders1/ice_climbers.png', 'CharacterRenders/CharacterRenders1/ike.png', 
-                'CharacterRenders/CharacterRenders1/incineroar.png', 'CharacterRenders/CharacterRenders1/inkling.png', 
-                'CharacterRenders/CharacterRenders1/isabelle.png', 'CharacterRenders/CharacterRenders1/ivysaur.png', 
-                'CharacterRenders/CharacterRenders1/jigglypuff.png', 'CharacterRenders/CharacterRenders1/joker.png', 
-                'CharacterRenders/CharacterRenders3/kazuya.png', 'CharacterRenders/CharacterRenders3/ken.png', 
-                'CharacterRenders/CharacterRenders3/king_dedede.png', 'CharacterRenders/CharacterRenders3/king_k_rool.png', 
-                'CharacterRenders/CharacterRenders3/kirby.png', 'CharacterRenders/CharacterRenders3/link.png', 
-                'CharacterRenders/CharacterRenders3/little_mac.png', 'CharacterRenders/CharacterRenders3/lucario.png', 
-                'CharacterRenders/CharacterRenders3/lucas.png', 'CharacterRenders/CharacterRenders3/lucina.png', 
-                'CharacterRenders/CharacterRenders3/luigi.png', 'CharacterRenders/CharacterRenders3/mario.png', 
-                'CharacterRenders/CharacterRenders3/marth.png', 'CharacterRenders/CharacterRenders3/mega_man.png', 
-                'CharacterRenders/CharacterRenders3/meta_knight.png', 'CharacterRenders/CharacterRenders3/mewtwo.png', 
-                'CharacterRenders/CharacterRenders3/mii_brawler.png', 'CharacterRenders/CharacterRenders3/mii_gunner.png', 
-                'CharacterRenders/CharacterRenders3/mii_swordfighter.png', 'CharacterRenders/CharacterRenders3/min-min.png', 
-                'CharacterRenders/CharacterRenders2/mr_game_and_watch.png', 'CharacterRenders/CharacterRenders2/ness.png', 
-                'CharacterRenders/CharacterRenders2/olimar.png', 'CharacterRenders/CharacterRenders2/pacman.png', 
-                'CharacterRenders/CharacterRenders2/palutena.png', 'CharacterRenders/CharacterRenders2/peach.png', 
-                'CharacterRenders/CharacterRenders2/pichu.png', 'CharacterRenders/CharacterRenders2/pikachu.png', 
-                'CharacterRenders/CharacterRenders2/piranha_plant.png', 'CharacterRenders/CharacterRenders2/pit.png', 
-                'CharacterRenders/CharacterRenders2/pokemon_trainer.png', 'CharacterRenders/CharacterRenders2/pyra_and_mythra.png', 
-                'CharacterRenders/CharacterRenders2/richter.png', 'CharacterRenders/CharacterRenders2/ridley.png', 
-                'CharacterRenders/CharacterRenders2/rob.png', 'CharacterRenders/CharacterRenders2/robin.png', 
-                'CharacterRenders/CharacterRenders2/rosalina_and_luma.png', 'CharacterRenders/CharacterRenders2/roy.png', 
-                'CharacterRenders/CharacterRenders2/ryu.png', 'CharacterRenders/CharacterRenders2/samus.png', 
-                'CharacterRenders/CharacterRenders4/sephiroth.png', 'CharacterRenders/CharacterRenders4/sheik.png', 
-                'CharacterRenders/CharacterRenders4/shulk.png', 'CharacterRenders/CharacterRenders4/simon.png', 
-                'CharacterRenders/CharacterRenders4/snake.png', 'CharacterRenders/CharacterRenders4/sonic.png', 
-                'CharacterRenders/CharacterRenders4/sora.png', 'CharacterRenders/CharacterRenders4/squirtle.png', 
-                'CharacterRenders/CharacterRenders4/steve.png', 'CharacterRenders/CharacterRenders4/terry.png'
-            ];
-        
-            const characterNames = [
-                'Banjo & Kazooie', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Byleth', 'Captain Falcon', 
-                'Charizard', 'Chrom', 'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 
-                'Diddy Kong', 'Donkey Kong', 'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox', 
-                'Ganondorf', 'Greninja', 'Hero', 'Ice Climbers', 'Ike', 'Incineroar', 
-                'Inkling', 'Isabelle', 'Ivysaur', 'Jigglypuff', 'Joker', 'Kazuya', 
-                'Ken', 'King Dedede', 'King K. Rool', 'Kirby', 'Link', 'Little Mac', 
-                'Lucario', 'Lucas', 'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 
-                'Meta Knight', 'Mewtwo', 'Mii Brawler', 'Mii Gunner', 'Mii Swordfighter', 
-                'Min Min', 'Mr. Game & Watch', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 
-                'Peach', 'Pichu', 'Pikachu', 'Piranha Plant', 'Pit', 'Pokemon Trainer', 
-                'Pyra & Mythra', 'Richter', 'Ridley', 'Rob', 'Robin', 'Rosalina & Luma', 
-                'Roy', 'Ryu', 'Samus', 'Sephiroth', 'Sheik', 'Shulk', 'Simon', 'Snake', 
-                'Sonic', 'Sora', 'Squirtle', 'Steve', 'Terry'
-            ];
-        
-            const characterLinks = [
-                'CharacterPages/banjo_and_kazooie.html', 'CharacterPages/bayonetta.html', 
-                'CharacterPages/bowser.html', 'CharacterPages/bowser_jr.html', 'CharacterPages/byleth.html', 
-                'CharacterPages/captain_falcon.html', 'CharacterPages/charizard.html', 'CharacterPages/chrom.html', 
-                'CharacterPages/cloud.html', 'CharacterPages/corrin.html', 'CharacterPages/daisy.html', 
-                'CharacterPages/dark_pit.html', 'CharacterPages/dark_samus.html', 'CharacterPages/diddy_kong.html', 
-                'CharacterPages/donkey_kong.html', 'CharacterPages/dr_mario.html', 'CharacterPages/duck_hunt.html', 
-                'CharacterPages/falco.html', 'CharacterPages/fox.html', 'CharacterPages/ganondorf.html', 
-                'CharacterPages/greninja.html', 'CharacterPages/hero.html', 'CharacterPages/ice_climbers.html', 
-                'CharacterPages/ike.html', 'CharacterPages/incineroar.html', 'CharacterPages/inkling.html', 
-                'CharacterPages/isabelle.html', 'CharacterPages/ivysaur.html', 'CharacterPages/jigglypuff.html', 
-                'CharacterPages/joker.html', 'CharacterPages/kazuya.html', 'CharacterPages/ken.html', 
-                'CharacterPages/king_dedede.html', 'CharacterPages/king_k_rool.html', 'CharacterPages/kirby.html', 
-                'CharacterPages/link.html', 'CharacterPages/little_mac.html', 'CharacterPages/lucario.html', 
-                'CharacterPages/lucas.html', 'CharacterPages/lucina.html', 'CharacterPages/luigi.html', 
-                'CharacterPages/mario.html', 'CharacterPages/marth.html', 'CharacterPages/mega_man.html', 
-                'CharacterPages/meta_knight.html', 'CharacterPages/mewtwo.html', 'CharacterPages/mii_brawler.html', 
-                'CharacterPages/mii_gunner.html', 'CharacterPages/mii_swordfighter.html', 'CharacterPages/min_min.html', 
-                'CharacterPages/mr_game_and_watch.html', 'CharacterPages/ness.html', 'CharacterPages/olimar.html', 
-                'CharacterPages/pacman.html', 'CharacterPages/palutena.html', 'CharacterPages/peach.html', 
-                'CharacterPages/pichu.html', 'CharacterPages/pikachu.html', 'CharacterPages/piranha_plant.html', 
-                'CharacterPages/pit.html', 'CharacterPages/pokemon_trainer.html', 'CharacterPages/pyra_and_mythra.html', 
-                'CharacterPages/richter.html', 'CharacterPages/ridley.html', 'CharacterPages/rob.html', 
-                'CharacterPages/robin.html', 'CharacterPages/rosalina_and_luma.html', 'CharacterPages/roy.html', 
-                'CharacterPages/ryu.html', 'CharacterPages/samus.html', 'CharacterPages/sephiroth.html', 
-                'CharacterPages/sheik.html', 'CharacterPages/shulk.html', 'CharacterPages/simon.html', 
-                'CharacterPages/snake.html', 'CharacterPages/sonic.html', 'CharacterPages/sora.html', 
-                'CharacterPages/squirtle.html', 'CharacterPages/steve.html', 'CharacterPages/terry.html'
-            ];
-        
-            // Dynamically create image elements with corresponding links and names
-            imageUrls.forEach((imageUrl, index) => {
-                const container = document.createElement('div');
-                container.style.textAlign = 'center';
-                
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = characterNames[index];
-                img.style.width = '100px'; // Adjust size as needed
-                img.style.marginBottom = '10px';
-                img.addEventListener('click', () => {
-                    window.location.href = characterLinks[index];
-                });
-        
-                const name = document.createElement('p');
-                name.innerText = characterNames[index];
-                
-                container.appendChild(img);
-                container.appendChild(name);
-                document.body.appendChild(container);
-            });
-        </script>
+        <!-- Boxes will be added here by JavaScript -->
     </div>
+
+    <script>
+        const imageUrls = [
+            'CharacterRenders/CharacterRenders1/banjo_and_kazooie.png', 'CharacterRenders/CharacterRenders1/bayonetta.png', 
+            'CharacterRenders/CharacterRenders1/bowser.png', 'CharacterRenders/CharacterRenders1/bowser_jr.png', 
+            'CharacterRenders/CharacterRenders1/byleth.png', 'CharacterRenders/CharacterRenders1/captain_falcon.png', 
+            'CharacterRenders/CharacterRenders1/charizard.png', 'CharacterRenders/CharacterRenders1/chrom.png', 
+            'CharacterRenders/CharacterRenders1/cloud.png', 'CharacterRenders/CharacterRenders1/corrin.png', 
+            'CharacterRenders/CharacterRenders1/daisy.png', 'CharacterRenders/CharacterRenders1/dark_pit.png', 
+            'CharacterRenders/CharacterRenders1/dark_samus.png', 'CharacterRenders/CharacterRenders1/diddy_kong.png', 
+            'CharacterRenders/CharacterRenders1/donkey_kong.png', 'CharacterRenders/CharacterRenders1/dr_mario.png', 
+            'CharacterRenders/CharacterRenders1/duck_hunt.png', 'CharacterRenders/CharacterRenders1/falco.png', 
+            'CharacterRenders/CharacterRenders1/fox.png', 'CharacterRenders/CharacterRenders1/ganondorf.png', 
+            'CharacterRenders/CharacterRenders1/greninja.png', 'CharacterRenders/CharacterRenders1/hero.png', 
+            'CharacterRenders/CharacterRenders1/ice_climbers.png', 'CharacterRenders/CharacterRenders1/ike.png', 
+            'CharacterRenders/CharacterRenders1/incineroar.png', 'CharacterRenders/CharacterRenders1/inkling.png', 
+            'CharacterRenders/CharacterRenders1/isabelle.png', 'CharacterRenders/CharacterRenders1/ivysaur.png', 
+            'CharacterRenders/CharacterRenders1/jigglypuff.png', 'CharacterRenders/CharacterRenders1/joker.png', 
+            'CharacterRenders/CharacterRenders3/kazuya.png', 'CharacterRenders/CharacterRenders3/ken.png', 
+            'CharacterRenders/CharacterRenders3/king_dedede.png', 'CharacterRenders/CharacterRenders3/king_k_rool.png', 
+            'CharacterRenders/CharacterRenders3/kirby.png', 'CharacterRenders/CharacterRenders3/link.png', 
+            'CharacterRenders/CharacterRenders3/little_mac.png', 'CharacterRenders/CharacterRenders3/lucario.png', 
+            'CharacterRenders/CharacterRenders3/lucas.png', 'CharacterRenders/CharacterRenders3/lucina.png', 
+            'CharacterRenders/CharacterRenders3/luigi.png', 'CharacterRenders/CharacterRenders3/mario.png', 
+            'CharacterRenders/CharacterRenders3/marth.png', 'CharacterRenders/CharacterRenders3/mega_man.png', 
+            'CharacterRenders/CharacterRenders3/meta_knight.png', 'CharacterRenders/CharacterRenders3/mewtwo.png', 
+            'CharacterRenders/CharacterRenders3/mii_brawler.png', 'CharacterRenders/CharacterRenders3/mii_gunner.png', 
+            'CharacterRenders/CharacterRenders3/mii_swordfighter.png', 'CharacterRenders/CharacterRenders3/min-min.png', 
+            'CharacterRenders/CharacterRenders2/mr_game_and_watch.png', 'CharacterRenders/CharacterRenders2/ness.png', 
+            'CharacterRenders/CharacterRenders2/olimar.png', 'CharacterRenders/CharacterRenders2/pacman.png', 
+            'CharacterRenders/CharacterRenders2/palutena.png', 'CharacterRenders/CharacterRenders2/peach.png', 
+            'CharacterRenders/CharacterRenders2/pichu.png', 'CharacterRenders/CharacterRenders2/pikachu.png', 
+            'CharacterRenders/CharacterRenders2/piranha_plant.png', 'CharacterRenders/CharacterRenders2/pit.png', 
+            'CharacterRenders/CharacterRenders2/pokemon_trainer.png', 'CharacterRenders/CharacterRenders2/pyra_and_mythra.png', 
+            'CharacterRenders/CharacterRenders2/richter.png', 'CharacterRenders/CharacterRenders2/ridley.png', 
+            'CharacterRenders/CharacterRenders2/rob.png', 'CharacterRenders/CharacterRenders2/robin.png', 
+            'CharacterRenders/CharacterRenders2/rosalina_and_luma.png', 'CharacterRenders/CharacterRenders2/roy.png', 
+            'CharacterRenders/CharacterRenders2/ryu.png', 'CharacterRenders/CharacterRenders2/samus.png', 
+            'CharacterRenders/CharacterRenders4/sephiroth.png', 'CharacterRenders/CharacterRenders4/sheik.png', 
+            'CharacterRenders/CharacterRenders4/shulk.png', 'CharacterRenders/CharacterRenders4/simon.png', 
+            'CharacterRenders/CharacterRenders4/snake.png', 'CharacterRenders/CharacterRenders4/sonic.png', 
+            'CharacterRenders/CharacterRenders4/sora.png', 'CharacterRenders/CharacterRenders4/squirtle.png', 
+            'CharacterRenders/CharacterRenders4/steve.png', 'CharacterRenders/CharacterRenders4/terry.png', 
+            'CharacterRenders/CharacterRenders4/toon_link.png', 'CharacterRenders/CharacterRenders4/villager.png', 
+            'CharacterRenders/CharacterRenders4/wario.png', 'CharacterRenders/CharacterRenders4/wii_fit_trainer.png', 
+            'CharacterRenders/CharacterRenders4/wolf.png', 'CharacterRenders/CharacterRenders4/yoshi.png', 
+            'CharacterRenders/CharacterRenders4/young_link.png', 'CharacterRenders/CharacterRenders4/zelda.png', 
+            'CharacterRenders/CharacterRenders4/zero_suit_samus.png'
+        ];
+
+        const characterNames = [
+            "Banjo & Kazooie", "Bayonetta", "Bowser", "Bowser Jr.", "Byleth", "Captain Falcon", 
+            "Charizard", "Chrom", "Cloud", "Corrin", "Daisy", "Dark Pit", "Dark Samus", "Diddy Kong", 
+            "Donkey Kong", "Dr. Mario", "Duck Hunt", "Falco", "Fox", "Ganondorf", "Greninja", "Hero", 
+            "Ice Climbers", "Ike", "Incineroar", "Inkling", "Isabelle", "Ivysaur", "Jigglypuff", "Joker", 
+            "Kazuya", "Ken", "King Dedede", "King K. Rool", "Kirby", "Link", "Little Mac", "Lucario", "Lucas", 
+            "Lucina", "Luigi", "Mario", "Marth", "Mega Man", "Meta Knight", "Mewtwo", "Mii Brawler", 
+            "Mii Gunner", "Mii Swordfighter", "Min Min", "Mr. Game & Watch", "Ness", "Olimar", "Pacman", 
+            "Palutena", "Peach", "Pichu", "Pikachu", "Piranha Plant", "Pit", "Pokemon Trainer", 
+            "Pyra & Mythra", "Richter", "Ridley", "ROB", "Robin", "Rosalina & Luma", "Roy", "Ryu", "Samus", 
+            "Sephiroth", "Sheik", "Shulk", "Simon", "Snake", "Sonic", "Sora", "Squirtle", "Steve", "Terry", 
+            "Toon Link", "Villager", "Wario", "Wii Fit Trainer", "Wolf", "Yoshi", "Young Link", "Zelda", 
+            "Zero Suit Samus"
+        ];
+
+        const boxesContainer = document.querySelector('.boxes-container');
+
+        imageUrls.forEach((url, index) => {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            box.innerHTML = `
+                <a href="#">
+                    <img src="${url}" alt="${characterNames[index]}">
+                    <span>${characterNames[index]}</span>
+                </a>
+            `;
+            boxesContainer.appendChild(box); // Append to the container instead of body
+        });
+    </script>
+
 </body>
 </html>
