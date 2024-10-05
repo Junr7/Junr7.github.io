@@ -131,7 +131,6 @@
             'CharacterRenders4/zero_suit_samus.png'
         ];
 
-
         const characterNames = [
             "Banjo & Kazooie", "Bayonetta", "Bowser", "Bowser Jr.", "Byleth", "Captain Falcon", 
             "Chrom", "Cloud", "Corrin", "Daisy", "Dark Pit", "Dark Samus", "Diddy Kong", 
@@ -141,39 +140,33 @@
             "Lucina", "Luigi", "Mario", "Marth", "Mega Man", "Meta Knight", "Mewtwo", "Mii Brawler", 
             "Mii Gunner", "Mii Swordfighter", "Min Min", "Mr. Game & Watch", "Ness", "Olimar", "Pacman", 
             "Palutena", "Peach", "Pichu", "Pikachu", "Piranha Plant", "Pit", "Pokemon Trainer", 
-            "Pyra & Mythra", "Richter", "Ridley", "ROB", "Robin", "Rosalina & Luma", "Roy", "Ryu", "Samus", 
-            "Sephiroth", "Sheik", "Shulk", "Simon", "Snake", "Sonic", "Sora", "Steve", "Terry", 
-            "Toon Link", "Villager", "Wario", "Wii Fit Trainer", "Wolf", "Yoshi", "Young Link", "Zelda", 
-            "Zero Suit Samus"
+            "Pyra & Mythra", "Richter", "Ridley", "ROB", "Robin", "Rosalina & Luma", "Roy", 
+            "Ryu", "Samus", "Sephiroth", "Sheik", "Shulk", "Simon", "Snake", "Sonic", "Sora", 
+            "Steve", "Terry", "Toon Link", "Villager", "Wario", "Wii Fit Trainer", "Wolf", 
+            "Yoshi", "Young Link", "Zelda", "Zero Suit Samus"
         ];
 
-        const boxesContainer = document.querySelector('.boxes-container');
+        const container = document.querySelector('.boxes-container');
 
-        imageUrls.forEach((url, index) => {
+        imageUrls.forEach((imageUrl, index) => {
             const box = document.createElement('div');
             box.classList.add('box');
-        
-            // Create the correct file path in the CharacterPages1 folder
-            const characterFileName = "CharacterPages1/banjo_and_kazooie.html";
-            const characterFileName = "CharacterPages1/bayonetta.html";
-            const characterFileName = "CharacterPages1/bowser.html";
-            const characterFileName = "CharacterPages1/bowser_jr.html";
-            const characterFileName = "CharacterPages1/byleth.html";
-            const characterFileName = "CharacterPages1/captain_falcon.html";
-            const characterFileName = "CharacterPages1/chrom.html";
-            const characterFileName = "CharacterPages1/cloud.html";
-            const characterFileName = "CharacterPages1/corrin.html";
-            const characterFileName = "CharacterPages1/diddy_kong.html";
-        
-            box.innerHTML = `
-                <a href="${characterFileName}">
-                    <img src="${url}" alt="${characterNames[index]}">
-                    <span>${characterNames[index]}</span>
-                </a>
-            `;
-            boxesContainer.appendChild(box);
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = characterNames[index];
+
+            const span = document.createElement('span');
+            span.textContent = characterNames[index];
+
+            const link = document.createElement('a');
+            link.href = `CharacterPages1/${characterNames[index].replace(/\s+/g, '_')}.html`; // Link to the character page
+            link.appendChild(img);
+            link.appendChild(span);
+
+            box.appendChild(link);
+            container.appendChild(box);
         });
     </script>
-
 </body>
 </html>
