@@ -1,11 +1,54 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Test</title>
+    <title>Banjo & Kazooie</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+            background-color: #f0f0f0; /* Light background for contrast */
+            font-family: Arial, sans-serif;
+        }
+
+        .character-image {
+            width: 200px; /* Set width of the character image */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 10px; /* Space between image and name */
+        }
+
+        .character-name {
+            font-size: 24px; /* Font size for character name */
+            text-align: center;
+            margin-bottom: 20px; /* Space between name and rectangle */
+        }
+
+        .text-rectangle {
+            background-color: #fff; /* White background for rectangle */
+            border: 2px solid #333; /* Dark border for contrast */
+            width: 800px; /* Set width of the rectangle */
+            height: 400px; /* Set height of the rectangle */
+            padding: 20px; /* Spacing inside the rectangle */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            overflow-y: auto; /* Allow scrolling if text overflows */
+        }
+    </style>
 </head>
 <body>
+
     <img src="../CharacterRenders1/banjo_and_kazooie.png" alt="Banjo & Kazooie" class="character-image">
+
+    <div class="character-name">Banjo & Kazooie</div>
+
+    <div class="text-rectangle">
+        <!-- Add your text here -->
+        <p>test</p>
+    </div>
+
 </body>
 </html>
