@@ -157,46 +157,45 @@
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4'
         ];
 
-        function createBox(imageUrl, characterName, pageFolder) {
+        const boxesContainer = document.querySelector('.boxes-container');
+
+        function createBox(imageUrl, characterName, folder) {
             const box = document.createElement('div');
-            box.classList.add('box');
-            
+            box.className = 'box';
+
             const link = document.createElement('a');
-            link.href = `${pageFolder}/${characterName.toLowerCase().replace(/\s+|&/g, '_').replace('.', '')}.html`;
+            link.href = `/${folder}/${characterName.replace(/ /g, '_').replace(/&/g, 'and').replace(/\./g, '').toLowerCase()}.html`;
 
             const img = document.createElement('img');
             img.src = imageUrl;
             img.alt = characterName;
 
-            const span = document.createElement('span');
-            span.textContent = characterName;
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = characterName;
 
             link.appendChild(img);
-            link.appendChild(span);
+            link.appendChild(nameSpan);
             box.appendChild(link);
-
-            return box;
-        }
-
-        const boxesContainer = document.querySelector('.boxes-container');
-
-        for (let i = 0; i < imageUrls.length; i++) {
-            const box = createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
             boxesContainer.appendChild(box);
         }
-    </script>
 
+        for (let i = 0; i < imageUrls.length; i++) {
+            createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
+        }
+    </script>
 </body>
 </html>
