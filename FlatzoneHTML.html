@@ -163,29 +163,41 @@
             'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4'
         ];
 
-        const boxesContainer = document.querySelector('.boxes-container');
-
-        imageUrls.forEach((url, index) => {
+        function createBox(imageUrl, characterName, pageFolder) {
             const box = document.createElement('div');
             box.classList.add('box');
             
-            // Create the correct file path, using the appropriate folder for each character
-            const characterFileName = `${characterPageFolders[index]}/${characterNames[index].toLowerCase().replace(/ /g, '_')}.html`;
+            const link = document.createElement('a');
+            link.href = `${pageFolder}/${characterName.toLowerCase().replace(/\s+|&/g, '_').replace('.', '')}.html`;
+            link.target = '_blank';
 
-            box.innerHTML = `
-                <a href="${characterFileName}">
-                    <img src="${url}" alt="${characterNames[index]}">
-                    <span>${characterNames[index]}</span>
-                </a>
-            `;
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = characterName;
+
+            const span = document.createElement('span');
+            span.textContent = characterName;
+
+            link.appendChild(img);
+            link.appendChild(span);
+            box.appendChild(link);
+
+            return box;
+        }
+
+        const boxesContainer = document.querySelector('.boxes-container');
+
+        for (let i = 0; i < imageUrls.length; i++) {
+            const box = createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
             boxesContainer.appendChild(box);
-        });
+        }
     </script>
 
 </body>
