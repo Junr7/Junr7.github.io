@@ -153,10 +153,16 @@
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
-            'CharacterPages1', 'CharacterPages1', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
@@ -165,7 +171,7 @@
 
         const boxesContainer = document.querySelector('.boxes-container');
 
-        imageUrls.forEach((url, index) => {
+        imageUrls.forEach((imageUrl, index) => {
             const box = document.createElement('div');
             box.className = 'box';
 
@@ -173,14 +179,13 @@
             link.href = `${characterPageFolders[index]}/${characterNames[index].toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}.html`;
 
             const img = document.createElement('img');
-            img.src = url;
-            img.alt = characterNames[index];
+            img.src = imageUrl;
 
-            const span = document.createElement('span');
-            span.textContent = characterNames[index];
+            const name = document.createElement('span');
+            name.textContent = characterNames[index];
 
             link.appendChild(img);
-            link.appendChild(span);
+            link.appendChild(name);
             box.appendChild(link);
             boxesContainer.appendChild(box);
         });
