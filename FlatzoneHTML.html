@@ -153,59 +153,35 @@
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
-            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
-            'CharacterPages4', 'CharacterPages4'
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4'
         ];
-
-        const createBox = (imageUrl, characterName, folderName) => {
-            const box = document.createElement('div');
-            box.className = 'box';
-
-            // Create link to character page
-            const link = document.createElement('a');
-            // Prevent opening in a new tab for Rosalina & Luma
-            if (characterName === "Rosalina & Luma") {
-                link.href = `${folderName}/rosalina_and_luma.html`;
-            } else {
-                link.href = `${folderName}/${characterName.toLowerCase().replace(/ /g, "_")}.html`;
-            }
-            
-            link.addEventListener('click', function(event) {
-                if (characterName === "Rosalina & Luma") {
-                    event.preventDefault(); // Prevent default behavior
-                    window.location.href = link.href; // Redirect to the same page
-                }
-            });
-
-            const img = document.createElement('img');
-            img.src = imageUrl;
-            img.alt = characterName;
-
-            const span = document.createElement('span');
-            span.textContent = characterName;
-
-            link.appendChild(img);
-            link.appendChild(span);
-            box.appendChild(link);
-
-            return box;
-        };
 
         const boxesContainer = document.querySelector('.boxes-container');
 
         imageUrls.forEach((url, index) => {
-            const box = createBox(url, characterNames[index], characterPageFolders[index]);
+            const box = document.createElement('div');
+            box.className = 'box';
+
+            const link = document.createElement('a');
+            link.href = `${characterPageFolders[index]}/${characterNames[index].toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}.html`;
+
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = characterNames[index];
+
+            const span = document.createElement('span');
+            span.textContent = characterNames[index];
+
+            link.appendChild(img);
+            link.appendChild(span);
+            box.appendChild(link);
             boxesContainer.appendChild(box);
         });
     </script>
