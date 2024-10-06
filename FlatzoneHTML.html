@@ -1,39 +1,200 @@
-<script>
-    const imageUrls = [
-        // (Your image URLs here)
-    ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Layout with Images and Text</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
 
-    const characterNames = [
-        // (Your character names here)
-    ];
+        .top-bar {
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            width: 100%;
+        }
 
-    const characterPageFolders = [
-        // (Your character page folders here)
-    ];
+        .boxes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
 
-    const boxesContainer = document.querySelector('.boxes-container');
+        .box {
+            background-color: #333;
+            width: 120px;
+            height: 160px;
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
 
-    function createBox(imageUrl, characterName, folder) {
-        const box = document.createElement('div');
-        box.className = 'box';
+        .box img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            display: block;
+        }
 
-        const link = document.createElement('a');
-        link.href = `${folder}/${characterName.replace(/ /g, '_').replace(/&/g, 'and').replace(/\./g, '').toLowerCase()}.html`;
+        .box span {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        const img = document.createElement('img');
-        img.src = imageUrl;
-        img.alt = characterName;
+        .box a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
 
-        const nameSpan = document.createElement('span');
-        nameSpan.textContent = characterName;
+    <div class="top-bar">
+        Mr. Game & Watch MU database
+    </div>
 
-        link.appendChild(img);
-        link.appendChild(nameSpan);
-        box.appendChild(link);
-        boxesContainer.appendChild(box);
-    }
+    <div class="boxes-container">
+        <!-- Boxes will be added here by JavaScript -->
+    </div>
 
-    for (let i = 0; i < imageUrls.length; i++) {
-        createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
-    }
-</script>
+    <script>
+        const imageUrls = [
+            'CharacterRenders1/banjo_and_kazooie.png', 'CharacterRenders1/bayonetta.png', 
+            'CharacterRenders1/bowser.png', 'CharacterRenders1/bowser_jr.png', 
+            'CharacterRenders1/byleth.png', 'CharacterRenders1/captain_falcon.png', 
+            'CharacterRenders1/chrom.png', 'CharacterRenders1/cloud.png', 
+            'CharacterRenders1/corrin.png', 'CharacterRenders1/daisy.png', 
+            'CharacterRenders1/dark_pit.png', 'CharacterRenders1/dark_samus.png', 
+            'CharacterRenders1/diddy_kong.png', 'CharacterRenders1/donkey_kong.png', 
+            'CharacterRenders1/dr_mario.png', 'CharacterRenders1/duck_hunt.png', 
+            'CharacterRenders1/falco.png', 'CharacterRenders1/fox.png', 
+            'CharacterRenders1/ganondorf.png', 'CharacterRenders1/greninja.png', 
+            'CharacterRenders1/hero.png', 'CharacterRenders1/ice_climbers.png', 
+            'CharacterRenders1/ike.png', 'CharacterRenders1/incineroar.png', 
+            'CharacterRenders1/inkling.png', 'CharacterRenders1/isabelle.png', 
+            'CharacterRenders1/jigglypuff.png', 'CharacterRenders1/joker.png', 
+            'CharacterRenders3/kazuya.png', 'CharacterRenders3/ken.png', 
+            'CharacterRenders3/king_dedede.png', 'CharacterRenders3/king_k_rool.png', 
+            'CharacterRenders3/kirby.png', 'CharacterRenders3/link.png', 
+            'CharacterRenders3/little_mac.png', 'CharacterRenders3/lucario.png', 
+            'CharacterRenders3/lucas.png', 'CharacterRenders3/lucina.png', 
+            'CharacterRenders3/luigi.png', 'CharacterRenders3/mario.png', 
+            'CharacterRenders3/marth.png', 'CharacterRenders3/mega_man.png', 
+            'CharacterRenders3/meta_knight.png', 'CharacterRenders3/mewtwo.png', 
+            'CharacterRenders3/mii_brawler.png', 'CharacterRenders3/mii_gunner.png', 
+            'CharacterRenders3/mii_swordfighter.png', 'CharacterRenders3/min-min.png', 
+            'CharacterRenders2/mr_game_and_watch.png', 'CharacterRenders2/ness.png', 
+            'CharacterRenders2/olimar.png', 'CharacterRenders2/pacman.png', 
+            'CharacterRenders2/palutena.png', 'CharacterRenders2/peach.png', 
+            'CharacterRenders2/pichu.png', 'CharacterRenders2/pikachu.png', 
+            'CharacterRenders2/piranha_plant.png', 'CharacterRenders2/pit.png', 
+            'CharacterRenders2/pokemon_trainer.png', 'CharacterRenders2/pyra_and_mythra.png', 
+            'CharacterRenders2/richter.png', 'CharacterRenders2/ridley.png', 
+            'CharacterRenders2/rob.png', 'CharacterRenders2/robin.png', 
+            'CharacterRenders2/rosalina_and_luma.png', 'CharacterRenders2/roy.png', 
+            'CharacterRenders2/ryu.png', 'CharacterRenders2/samus.png', 
+            'CharacterRenders4/sephiroth.png', 'CharacterRenders4/sheik.png', 
+            'CharacterRenders4/shulk.png', 'CharacterRenders4/simon.png', 
+            'CharacterRenders4/snake.png', 'CharacterRenders4/sonic.png', 
+            'CharacterRenders4/sora.png', 'CharacterRenders4/steve.png', 
+            'CharacterRenders4/terry.png', 'CharacterRenders4/toon_link.png', 
+            'CharacterRenders4/villager.png', 'CharacterRenders4/wario.png', 
+            'CharacterRenders4/wii_fit_trainer.png', 'CharacterRenders4/wolf.png', 
+            'CharacterRenders4/yoshi.png', 'CharacterRenders4/young_link.png', 
+            'CharacterRenders4/zelda.png', 'CharacterRenders4/zero_suit_samus.png'
+        ];
+
+        const characterNames = [
+            "Banjo & Kazooie", "Bayonetta", "Bowser", "Bowser Jr.", "Byleth", "Captain Falcon", 
+            "Chrom", "Cloud", "Corrin", "Daisy", "Dark Pit", "Dark Samus", "Diddy Kong", 
+            "Donkey Kong", "Dr. Mario", "Duck Hunt", "Falco", "Fox", "Ganondorf", "Greninja", 
+            "Hero", "Ice Climbers", "Ike", "Incineroar", "Inkling", "Isabelle", "Jigglypuff", 
+            "Joker", "Kazuya", "Ken", "King Dedede", "King K. Rool", "Kirby", "Link", "Little Mac", 
+            "Lucario", "Lucas", "Lucina", "Luigi", "Mario", "Marth", "Mega Man", "Meta Knight", 
+            "Mewtwo", "Mii Brawler", "Mii Gunner", "Mii Swordfighter", "Min Min", 
+            "Mr. Game & Watch", "Ness", "Olimar", "Pacman", "Palutena", "Peach", "Pichu", "Pikachu", 
+            "Piranha Plant", "Pit", "Pokemon Trainer", "Pyra & Mythra", "Richter", "Ridley", "ROB", 
+            "Robin", "Rosalina & Luma", "Roy", "Ryu", "Samus", "Sephiroth", "Sheik", "Shulk", 
+            "Simon", "Snake", "Sonic", "Sora", "Steve", "Terry", "Toon Link", "Villager", 
+            "Wario", "Wii Fit Trainer", "Wolf", "Yoshi", "Young Link", "Zelda", "Zero Suit Samus"
+        ];
+
+        const characterPageFolders = [
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4'
+        ];
+
+        const boxesContainer = document.querySelector('.boxes-container');
+
+        function createBox(imageUrl, characterName, folder) {
+            const box = document.createElement('div');
+            box.className = 'box';
+
+            const link = document.createElement('a');
+            link.href = `${folder}/${characterName.replace(/ /g, '_').replace(/&/g, 'and').replace(/\./g, '').toLowerCase()}.html`;
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = characterName;
+
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = characterName;
+
+            link.appendChild(img);
+            link.appendChild(nameSpan);
+            box.appendChild(link);
+            boxesContainer.appendChild(box);
+        }
+
+        for (let i = 0; i < imageUrls.length; i++) {
+            createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
+        }
+    </script>
+</body>
+</html>
