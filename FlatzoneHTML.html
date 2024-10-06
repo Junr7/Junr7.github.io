@@ -153,28 +153,40 @@
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
-            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
-            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4'
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4'
         ];
 
-        function createBox(imageUrl, characterName, pageFolder) {
+        const createBox = (imageUrl, characterName, folderName) => {
             const box = document.createElement('div');
-            box.classList.add('box');
-            
+            box.className = 'box';
+
+            // Create link to character page
             const link = document.createElement('a');
-            link.href = `${pageFolder}/${characterName.toLowerCase().replace(/\s+|&/g, '_').replace('.', '')}.html`;
+            // Prevent opening in a new tab for Rosalina & Luma
+            if (characterName === "Rosalina & Luma") {
+                link.href = `${folderName}/rosalina_and_luma.html`;
+            } else {
+                link.href = `${folderName}/${characterName.toLowerCase().replace(/ /g, "_")}.html`;
+            }
+            
+            link.addEventListener('click', function(event) {
+                if (characterName === "Rosalina & Luma") {
+                    event.preventDefault(); // Prevent default behavior
+                    window.location.href = link.href; // Redirect to the same page
+                }
+            });
 
             const img = document.createElement('img');
             img.src = imageUrl;
@@ -188,15 +200,14 @@
             box.appendChild(link);
 
             return box;
-        }
+        };
 
         const boxesContainer = document.querySelector('.boxes-container');
 
-        for (let i = 0; i < imageUrls.length; i++) {
-            const box = createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
+        imageUrls.forEach((url, index) => {
+            const box = createBox(url, characterNames[index], characterPageFolders[index]);
             boxesContainer.appendChild(box);
-        }
+        });
     </script>
-
 </body>
 </html>
