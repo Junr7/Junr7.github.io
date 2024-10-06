@@ -1,3 +1,59 @@
+%LOCALAPPDATA%\Packages\Microsoft.ScreenSketch_8wekyb3d8bbwe\TempState
+
+Upper division B (pick major classes to double count)
+Area E
+C1: Arts
+
+
+
+12 units of ge
+3500 (1 class for 2 reqs)
+3550 (1 class for 2 reqs)
+
+Email for Credit for area F and move social 1010 to d2
+Evaluator (Graduation Specialist), Rachel Moran, rschwartz3@csustan.edu
+Request that she credit SOCL1010 to D-2 AND ETHS2050 TO AREA F
+
+
+JAVA
+368 3616 VILLAGE/HOME
+MINE 10 THEN GO LEFT
+
+
+
+
+
+
+
+
+
+BEDROCK
+-4108.45 11.00 4184.40 END PORTAL
+-3959.65 71.00 2079.62 HOME 
+-501.27 73.00 255.34 NETHER PORTAL (IN THE NETHER)
+x: -661 Z: 27 NETHER FORTRESS
+-3640.92 63.00 3312.37 ENDERPEARL FARM
+313.13 78.00 1336.88 COORDS FOR 1ST DOG
+238.70 141.00 1826.70 COORDS FOR 2ND DOG (RIGHT ON TOP JUST DIG DOWN)
+-130.33 96.00 1867.70 COORDS FOR 3RD DOG (RIGHT ON TOP)
+-163.66 133.94 1903.17 BIG VILLAGE
+-349.63 109.00 2231.21 VILLAGE (WACK CUZ OF CAVE)
+-322.94 82.00 2679.07 PINK LEAVES FOREST THING
+-797.91 101.00 3019.60 VILLAGE AND PILLAR OUTPOST
+-1398.80 71.00 2875.11 + -4586.81 64.00 1300.03 VILLAGE
+-1382.63 66.00 2863.37 CARTOGRAPHER
+-1405.44 67.00 2864.23 EMERALDS FOR WHEAT
+-2345.01 63.00 2578.92 TURTLE
+-2998.48 86.00 2616.37 + -3642.18 99.00 2585.17 + -4293.19 69.00 1639.44 RUINED NETHER PORTAL (CHEST ITEMS + LAVA)
+-3385.13 118.00 2697.20 + -4416.66 64.00 1829.99 BEEHIVE
+-4385.23 64.50 1982.21 RUINED NETHER PORTAL (CHEST)
+-4870.59 87.00 1853.02 ZOMBIE SPAWNER
+-4889.43 93.00 2000 PILLAGER OUTPOST (NOT DEAD)
+-5057.36 69.00 1853.51 DOG
+-5068.50 67.00 1857.56 DOG
+-6009.93 64.00 3424.04 DOG IN A BOAT (AND SOME TURTLES)
+-5117.43 65.94 2892.19 VILLAGE
+-3376.44 104.70 3025.78 PINK TREE ALONE??
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,42 +209,50 @@
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
             'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
-            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
             'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
-            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
-            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
             'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4'
         ];
 
-        const boxesContainer = document.querySelector('.boxes-container');
-
-        imageUrls.forEach((imageUrl, index) => {
+        function createBox(imageUrl, characterName, pageFolder) {
             const box = document.createElement('div');
-            box.className = 'box';
-
+            box.classList.add('box');
+            
             const link = document.createElement('a');
-            link.href = `${characterPageFolders[index]}/${characterNames[index].toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}.html`;
+            link.href = `${pageFolder}/${characterName.toLowerCase().replace(/\s+|&/g, '_').replace('.', '')}.html`;
 
             const img = document.createElement('img');
             img.src = imageUrl;
+            img.alt = characterName;
 
-            const name = document.createElement('span');
-            name.textContent = characterNames[index];
+            const span = document.createElement('span');
+            span.textContent = characterName;
 
             link.appendChild(img);
-            link.appendChild(name);
+            link.appendChild(span);
             box.appendChild(link);
+
+            return box;
+        }
+
+        const boxesContainer = document.querySelector('.boxes-container');
+
+        for (let i = 0; i < imageUrls.length; i++) {
+            const box = createBox(imageUrls[i], characterNames[i], characterPageFolders[i]);
             boxesContainer.appendChild(box);
-        });
+        }
     </script>
+
 </body>
 </html>
