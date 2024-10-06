@@ -145,14 +145,38 @@
             "Wario", "Wii Fit Trainer", "Wolf", "Yoshi", "Young Link", "Zelda", "Zero Suit Samus"
         ];
 
+        const characterPageFolders = [
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages1', 'CharacterPages1', 'CharacterPages1', 'CharacterPages1',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages3', 'CharacterPages3', 'CharacterPages3', 'CharacterPages3',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages2', 'CharacterPages2', 'CharacterPages2', 'CharacterPages2',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4',
+            'CharacterPages4', 'CharacterPages4', 'CharacterPages4', 'CharacterPages4'
+        ];
+
         const boxesContainer = document.querySelector('.boxes-container');
 
         imageUrls.forEach((url, index) => {
             const box = document.createElement('div');
             box.classList.add('box');
             
-            // Create the correct file path, converting the character name to lowercase and replacing spaces with underscores
-            const characterFileName = `CharacterPages1/${characterNames[index].toLowerCase().replace(/ /g, '_')}.html`;
+            // Create the correct file path, using the appropriate folder for each character
+            const characterFileName = `${characterPageFolders[index]}/${characterNames[index].toLowerCase().replace(/ /g, '_')}.html`;
 
             box.innerHTML = `
                 <a href="${characterFileName}">
